@@ -1,0 +1,48 @@
+[global_config]
+  focus = system
+  handle_size = 0
+  borderless = True
+  extra_styling = False
+  tab_position = hidden
+  scroll_tabbar = True
+  homogeneous_tabbar = False
+  enabled_plugins = ActivityWatch, LaunchpadBugURLHandler, LaunchpadCodeURLHandler, APTURLHandler
+[keybindings]
+[profiles]
+  [[default]]
+    visible_bell = True
+    icon_bell = False
+    font = JetBrains Mono NL Medium 14
+    foreground_color = "#ffffff"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    palette = "#282828:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#a89984:#928374:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
+    use_custom_command = True
+    custom_command = toolbox enter mytoolbx
+    use_system_font = False
+    bold_is_bright = True
+    copy_on_selection = True
+    title_use_system_font = False
+  [[silverblue]]
+    visible_bell = True
+    background_color = "#002b36"
+    background_darkness = 0.8
+    cursor_fg_color = "#77767b"
+    cursor_bg_color = "#ffffff"
+    font = Monospace 12
+    foreground_color = "#839496"
+    scrollback_infinite = True
+    palette = "#000000:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
+    login_shell = True
+    copy_on_selection = True
+  [[orig]]
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+[plugins]
