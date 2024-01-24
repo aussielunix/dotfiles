@@ -1,0 +1,6 @@
+
+.gnupg/trustdb.gpg
+.gnupg/random_seed
+*.pyc
+.aws/credentials
+*.retry
