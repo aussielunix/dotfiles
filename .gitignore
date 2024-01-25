@@ -4,3 +4,5 @@
 *.pyc
 .aws/credentials
 *.retry
+.vim/plugged/
+.vim/.netrwhist
