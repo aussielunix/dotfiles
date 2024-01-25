@@ -4,3 +4,4 @@
 .github_ublue_token
 .config/ownCloud/owncloud.cfg
 .config/containers/auth.json
+.config/wireguard/mgmt.conf
