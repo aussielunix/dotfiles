@@ -1,5 +1,6 @@
 .ssh/config
 .ssh/id_rsa
 .ssh/packer_ed25519
-.config/ownCloud/owncloud.cfg
 .github_ublue_token
+.config/ownCloud/owncloud.cfg
+.config/containers/auth.json
