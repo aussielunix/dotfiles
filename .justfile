@@ -21,6 +21,7 @@ mytoolbx:
 owncloud_toolbx:
   #!/usr/bin/env bash
   toolbox create --image ghcr.io/aussielunix/owncloud-toolbx:latest -c owncloud
+  mkdir -p $HOME/ownCloud/{Personal,Shares}/
   mkdir -p $HOME/.local/share/systemd/user
   cd $HOME/.local/share/systemd/user
   podman generate systemd -n owncloud --new --files
