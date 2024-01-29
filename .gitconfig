@@ -28,3 +28,5 @@
 
 [core]
 	pager =
+[pull]
+	rebase = false
