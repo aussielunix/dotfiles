@@ -9,13 +9,8 @@ update_aussielunix_ca:
 # create my daily driver toolbox
 mytoolbx:
   #!/usr/bin/env bash
-  toolbox create --image ghcr.io/aussielunix/mytoolbx:latest -c mytoolbx
-  mkdir -p $HOME/.local/share/systemd/user
-  cd $HOME/.local/share/systemd/user
-  podman generate systemd -n mytoolbx --files
-  cd -
   systemctl --user daemon-reload
-  systemctl --user enable container-mytoolbx.service --now
+  systemctl --user start container-mytoolbx
 
 # Create and run owncloud toolbox under systemd
 owncloud_toolbx:
