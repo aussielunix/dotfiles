@@ -25,6 +25,7 @@ export HISTSIZE='5000'			# keep the last 5000 entrie sin `.bash_history`
 export HISTIGNORE='pwd:exit:clear'	# leave some things out of `.bash_history`
 
 # User specific bash aliases and functions
+# only load if inside a distrobox
 if [ -d ~/.profile.d ]; then
   for rc in ~/.profile.d/*.bash; do
     if [ -r "$rc" ]; then

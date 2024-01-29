@@ -1,3 +1,5 @@
 # get direnv up and running
 #
-eval "$(direnv hook bash)"
+if [[ -n "$CONTAINER_ID" ]]; then
+  eval "$(direnv hook bash)"
+fi
