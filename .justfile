@@ -55,7 +55,7 @@ owncloud_toolbx:
   systemctl --user enable owncloud-client.service --now
   sleep 120
   rm -rf Downloads && ln -s $HOME/ownCloud/Personal/Workstations/Downloads $HOME/Downloads
-  rm -rf Documents && ln -s \$HOME/ownCloud/Personal/Workstations/Documents $HOME/Documents
+  rm -rf Documents && ln -s $HOME/ownCloud/Personal/Workstations/Documents $HOME/Documents
   rm -rf Music && ln -s $HOME/ownCloud/Personal/Workstations/Music $HOME/Music
   rm -rf Videos && ln -s $HOME/ownCloud/Personal/Workstations/Videos $HOME/Videos
   rm -rf Pictures && ln -s $HOME/ownCloud/Personal/Workstations/Pictures $HOME/Pictures
