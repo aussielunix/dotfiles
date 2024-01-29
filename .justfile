@@ -57,6 +57,10 @@ owncloud_toolbx:
 
 # Customize Gnome settings
 customize_gnome:
+  #!/usr/bin/env bash
+  set -e
+  echo "Installing vim plugins"
+  vim +slient +VimEnter +PlugInstall +qall
   echo "Tuning a bunch of Gnome settings with gsettings"
   gsettings set org.gnome.desktop.background picture-uri-dark 'file:///usr/share/backgrounds/fedora-workstation/petals_dark.webp'
   gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/fedora-workstation/petals_light.webp'
