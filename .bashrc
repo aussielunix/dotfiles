@@ -25,7 +25,6 @@ export HISTSIZE='5000'			# keep the last 5000 entrie sin `.bash_history`
 export HISTIGNORE='pwd:exit:clear'	# leave some things out of `.bash_history`
 
 # User specific bash aliases and functions
-# only load if inside a distrobox
 if [ -d ~/.profile.d ]; then
   for rc in ~/.profile.d/*.bash; do
     if [ -r "$rc" ]; then
@@ -35,16 +34,6 @@ if [ -d ~/.profile.d ]; then
   unset rc
 fi
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-#if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-#  . /etc/bash_completion
-#fi
-
-. /usr/share/bash-completion/completions/git
-
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 export SYSTEMD_PAGER=
-
 
