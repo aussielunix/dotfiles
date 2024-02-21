@@ -12,6 +12,8 @@
   [[default]]
     visible_bell = True
     icon_bell = False
+    background_darkness = 0.25
+    background_type = transparent
     font = JetBrains Mono NL Medium 14
     foreground_color = "#ffffff"
     show_titlebar = False
