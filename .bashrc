@@ -15,7 +15,7 @@ fi
 export PATH
 
 # customize the bash shell behaviour
-
+shopt -s globstar     # allow file globbing in the shell
 shopt -s cdspell			# This will fix minor spelling mistakes when using `cd`
 complete -cf sudo			# Tab completion when using `sudo`
 HISTTIMEFORMAT='%FT%T: '		# timestamps in `.bash_history`
