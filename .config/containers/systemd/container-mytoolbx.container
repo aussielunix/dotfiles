@@ -1,6 +1,16 @@
 [Unit]
 Description=mytoolbx - a UBLUE CLI environment with Homebrew based on Wolfi
 
+[Service]
+# Restart service when sleep finishes
+Restart=always
+# Extend Timeout to allow time to pull the image
+TimeoutStartSec=900
+
+[Install]
+# Start by default on boot
+WantedBy=multi-user.target default.target
+
 [Container]
 Annotation=run.oci.keep_original_groups=1
 AutoUpdate=registry
@@ -11,7 +21,7 @@ Environment=XDG_RUNTIME_DIR=%t
 Environment=USER=%u
 Environment=USERNAME=%u
 Environment=container=podman
-Exec=--verbose --name %u  --user %U --group %G --home %h --init "0" --nvidia "1" --pre-init-hooks " " --additional-packages " " -- " "
+Exec=--verbose --name %u --user %U --group %G --home %h --init "0" -- " "
 Image=ghcr.io/aussielunix/mytoolbx:latest
 HostName=mytoolbx.%l
 Network=host
