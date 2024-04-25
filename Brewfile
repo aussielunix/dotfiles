@@ -1,6 +1,7 @@
 brew 'awscli'
 brew 'aws-vault'
 brew 'kubernetes-cli'
+brew 'mc'
 brew 'packer'
 brew 'pwgen'
 brew 'python3'
