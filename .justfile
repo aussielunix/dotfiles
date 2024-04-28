@@ -12,48 +12,18 @@ mytoolbx:
   systemctl --user daemon-reload
   systemctl --user start container-mytoolbx
 
-# Create and run owncloud toolbox under systemd
-owncloud_toolbx:
+# Setup and start owncloud distrobox under systemd
+owncloud_distrobox:
   #!/usr/bin/env bash
-  toolbox create --image ghcr.io/aussielunix/owncloud-toolbx:latest -c owncloud
   mkdir -p $HOME/ownCloud/{Personal,Shares}/
   mkdir -p $HOME/.local/share/systemd/user
-  cd $HOME/.local/share/systemd/user
-  podman generate systemd -n owncloud --new --files
-  cat << __EOF__ > owncloud-client.service
-  [Unit]
-  Description=Owncloud Client - Open Source Continuous File Synchronization
-  Documentation=man:owncloud(1)
-  StartLimitIntervalSec=60
-  StartLimitBurst=4
-  Wants=network-online.target
-  After=network-online.target
-
-  [Service]
-  ExecStart=/usr/bin/toolbox run --container owncloud owncloud
-  Restart=on-failure
-  RestartSec=1
-  SuccessExitStatus=3 4
-  RestartForceExitStatus=3 4
-
-  # Hardening
-  SystemCallArchitectures=native
-  MemoryDenyWriteExecute=true
-  NoNewPrivileges=true
-
-  [Install]
-  WantedBy=default.target
-  __EOF__
-  cd -
-  systemctl --user daemon-reload
-  systemctl --user enable container-owncloud.service --now
-  systemctl --user enable owncloud-client.service --now
-  sleep 120
   rm -rf Downloads && ln -s $HOME/ownCloud/Personal/Workstations/Downloads $HOME/Downloads
   rm -rf Documents && ln -s $HOME/ownCloud/Personal/Workstations/Documents $HOME/Documents
   rm -rf Music && ln -s $HOME/ownCloud/Personal/Workstations/Music $HOME/Music
   rm -rf Videos && ln -s $HOME/ownCloud/Personal/Workstations/Videos $HOME/Videos
   rm -rf Pictures && ln -s $HOME/ownCloud/Personal/Workstations/Pictures $HOME/Pictures
+  systemctl --user daemon-reload
+  systemctl --user start owncloud-distrobox
 
 # Customize Gnome settings
 customize_gnome:
