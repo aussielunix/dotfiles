@@ -33,8 +33,8 @@ customize_gnome:
   echo "Installing vim plugins"
   vim +slient +VimEnter +PlugInstall +qall
   echo "Tuning a bunch of Gnome settings with gsettings"
-  gsettings set org.gnome.desktop.background picture-uri-dark 'file:///usr/share/backgrounds/fedora-workstation/petals_dark.webp'
-  gsettings set org.gnome.desktop.background picture-uri 'file:///usr/share/backgrounds/fedora-workstation/petals_light.webp'
+  gsettings set org.gnome.desktop.background picture-uri-dark 'file:///home/lunix/.local/share/backgrounds/2024-02-18-09-27-24-grose_fire05.jpg'
+  gsettings set org.gnome.desktop.background picture-uri 'file:///home/lunix/.local/share/backgrounds/2024-02-18-09-27-24-grose_fire05.jpg'
   gsettings set org.gnome.desktop.background primary-color '#000000000000'
   gsettings set org.gnome.desktop.background secondary-color '#000000000000'
   gsettings set org.gnome.desktop.interface clock-show-weekday true
@@ -62,7 +62,7 @@ customize_gnome:
   gsettings set org.gnome.nautilus.window-state maximized true
   gsettings set org.gnome.mutter dynamic-workspaces false
   gsettings set org.gnome.mutter edge-tiling false
-  gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'org.mozilla.firefox.desktop', 'terminator.desktop', 'org.keepassxc.KeePassXC.desktop', 'dev-pod.desktop', 'com.vscodium.codium.desktop', 'com.discordapp.Discord.desktop']"
+  gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'org.mozilla.firefox.desktop', 'terminator.desktop', 'org.keepassxc.KeePassXC.desktop', 'dev-pod.desktop', 'com.discordapp.Discord.desktop', 'org.tigervnc.vncviewer.desktop', 'code.desktop']"
   gsettings set org.gnome.shell.extensions.just-perfection activities-button false
   gsettings set org.gnome.shell.extensions.just-perfection keyboard-layout false
   gsettings set org.gnome.shell.extensions.just-perfection accessibility-menu false
