@@ -24,6 +24,7 @@ owncloud_distrobox:
   rm -rf Pictures && ln -s $HOME/ownCloud/Personal/Workstations/Pictures $HOME/Pictures
   systemctl --user daemon-reload
   systemctl --user start owncloud-distrobox
+  sleep 120
   distrobox enter owncloud-desktop-quadlet -- distrobox-export --bin /opt/owncloud-client.AppDir/usr/bin/owncloud --export-path ~/bin/
 
 # Customize Gnome settings
