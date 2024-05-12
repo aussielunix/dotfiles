@@ -83,3 +83,10 @@ customize_gnome:
   gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ command 'terminator -p silverblue -m'
   gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ binding '<Super>Return'
 
+prepare_firefox:
+  #!/usr/bin/env bash
+  set -e
+  # :TODO: wrap in some tests for safety
+  echo "Creating Firefox profiles"
+  /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=firefox org.mozilla.firefox -CreateProfile contojo
+  /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=firefox org.mozilla.firefox -CreateProfile aussielunix
