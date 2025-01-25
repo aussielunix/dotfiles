@@ -1,4 +1,4 @@
-import "/usr/share/aussielunix/just/*"
+import "/usr/share/aussielunix/just/10-bootstrap.just"
 
 # update tls ca certificate store
 update_aussielunix_ca:
