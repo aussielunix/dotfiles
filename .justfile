@@ -13,7 +13,8 @@ install_flatpaks:
   #!/usr/bin/env bash
   set -e
   echo "Installing flatpaks"
-  flatpak remote-add --user --if-not-exists --subset=verified flathub-verified https://flathub.org/repo/flathub.flatpakrepo
+  #flatpak remote-add --user --if-not-exists --subset=verified flathub-verified https://flathub.org/repo/flathub.flatpakrepo
+  flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
   for PAK in $(cat $HOME/.flatpakfile);
   do
     flatpak install --user --assumeyes flathub-verified $PAK
