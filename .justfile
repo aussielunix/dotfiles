@@ -17,7 +17,7 @@ install_flatpaks:
   flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
   for PAK in $(cat $HOME/.flatpakfile);
   do
-    flatpak install --user --assumeyes flathub-verified $PAK
+    flatpak install --user --assumeyes flathub $PAK
   done
 
 prepare_firefox:
