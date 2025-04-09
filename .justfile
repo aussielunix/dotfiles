@@ -28,6 +28,15 @@ prepare_firefox:
   /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=firefox org.mozilla.firefox -CreateProfile contojo
   /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=firefox org.mozilla.firefox -CreateProfile aussielunix
 
+# Install some Gnome extensions
+install_gnome_extensions:
+  #!/usr/bin/env bash
+  set -e
+  for GEXT in $(cat $HOME/.gnome_extensions);
+  do
+    gnome-extensions install --user $GEXT
+  done
+
 # Customize Gnome settings
 customize_gnome:
   #!/usr/bin/env bash
