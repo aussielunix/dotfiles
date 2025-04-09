@@ -34,7 +34,7 @@ install_gnome_extensions:
   set -e
   for GEXT in $(cat $HOME/.gnome_extensions);
   do
-    gnome-extensions install --user $GEXT
+    gnome-extensions install $GEXT
   done
 
 # Customize Gnome settings
