@@ -2,9 +2,7 @@
 setup:
   #!/usr/bin/env bash
   set -e
-  echo "::bootstrap:: "
-  echo "::endgroup::"
-
+  sudo -v
   echo "::bootstrap:: update_aussielunix_ca"
   sudo wget --no-check-certificate https://cacert.hl.valueline.io/aussielunix_Root_CA_168848365996868199089383065266162030969.crt --output-document=/etc/pki/ca-trust/source/anchors/aussielunix_Root_CA_168848365996868199089383065266162030969.crt
   sudo /usr/bin/update-ca-trust
@@ -24,8 +22,8 @@ setup:
   echo "::endgroup::"
 
   echo "::bootstrap:: Creating Firefox profiles"
-  /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=firefox org.mozilla.firefox -CreateProfile contojo
-  /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=firefox org.mozilla.firefox -CreateProfile aussielunix
+  #/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=firefox org.mozilla.firefox -CreateProfile contojo
+  #/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=firefox org.mozilla.firefox -CreateProfile aussielunix
   echo "::endgroup::"
 
   echo "::bootstrap:: Tuning a bunch of Gnome settings with gsettings"
