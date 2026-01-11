@@ -7,12 +7,8 @@ setup:
   vim +slient +VimEnter +PlugInstall +qall
   echo "::endgroup::"
 
-  echo "::bootstrap:: Installing flatpaks"
-  flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-  for PAK in $(cat $HOME/.flatpakfile);
-  do
-    flatpak install --user --assumeyes flathub $PAK
-  done
+  echo "::bootstrap:: Install all homebrew and flatpak packages"
+  brew bundle install
   echo "::endgroup::"
 
   echo "::bootstrap:: Creating Firefox profiles"
