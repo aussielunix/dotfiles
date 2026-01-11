@@ -3,17 +3,11 @@ setup:
   #!/usr/bin/env bash
   set -e
   sudo -v
-  echo "::bootstrap:: update_aussielunix_ca"
-  sudo wget --no-check-certificate https://cacert.hl.valueline.io/aussielunix_Root_CA_168848365996868199089383065266162030969.crt --output-document=/etc/pki/ca-trust/source/anchors/aussielunix_Root_CA_168848365996868199089383065266162030969.crt
-  sudo /usr/bin/update-ca-trust
-  echo "::endgroup::"
-
   echo "::bootstrap:: Installing vim plugins"
   vim +slient +VimEnter +PlugInstall +qall
   echo "::endgroup::"
 
   echo "::bootstrap:: Installing flatpaks"
-  #flatpak remote-add --user --if-not-exists --subset=verified flathub-verified https://flathub.org/repo/flathub.flatpakrepo
   flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
   for PAK in $(cat $HOME/.flatpakfile);
   do
@@ -22,8 +16,8 @@ setup:
   echo "::endgroup::"
 
   echo "::bootstrap:: Creating Firefox profiles"
-  #/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=firefox org.mozilla.firefox -CreateProfile contojo
-  #/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=firefox org.mozilla.firefox -CreateProfile aussielunix
+  /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=firefox org.mozilla.firefox -CreateProfile contojo
+  /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=firefox org.mozilla.firefox -CreateProfile aussielunix
   echo "::endgroup::"
 
   echo "::bootstrap:: Tuning a bunch of Gnome settings with gsettings"
@@ -62,41 +56,48 @@ setup:
   gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ name 'Silverblue Terminal'
   gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ command 'terminator -p silverblue -m'
   gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ binding '<Super>Return'
-  gsettings set org.gnome.shell enabled-extensions "['appindicatorsupport@rgcjonas.gmail.com', 'just-perfection-desktop@just-perfection']"
-  gsettings set org.gnome.shell disabled-extensions "['background-logo@fedorahosted.org', 'places-menu@gnome-shell-extensions.gcampax.github.com']"
-  gsettings set org.gnome.shell.extensions.just-perfection activities-button false
-  gsettings set org.gnome.shell.extensions.just-perfection keyboard-layout false
-  gsettings set org.gnome.shell.extensions.just-perfection accessibility-menu false
-  gsettings set org.gnome.shell.extensions.just-perfection ripple-box false
-  gsettings set org.gnome.shell.extensions.just-perfection weather false
-  gsettings set org.gnome.shell.extensions.just-perfection world-clock false
-  gsettings set org.gnome.shell.extensions.just-perfection window-demands-attention-focus false
-  gsettings set org.gnome.shell.extensions.just-perfection type-to-search false
-  gsettings set org.gnome.shell.extensions.just-perfection startup-status 0
-  gsettings set org.gnome.shell.extensions.just-perfection workspace-switcher-should-show false
-  gsettings set org.gnome.shell.extensions.just-perfection show-apps-button false
-  echo "::endgroup::"
 
-# Install some Gnome extensions
-install_gnome_extensions:
-  #!/usr/bin/env bash
-  set -e
-  for GEXT in $(cat $HOME/.gnome_extensions);
-  do
-    gnome-extensions install $GEXT
-  done
-
-# Setup and start owncloud distrobox under systemd
-owncloud_distrobox:
-  #!/usr/bin/env bash
-  mkdir -p $HOME/ownCloud/{Personal,Shares}/
-  mkdir -p $HOME/.local/share/systemd/user
-  rm -rf Downloads && ln -s $HOME/ownCloud/Personal/Workstations/Downloads $HOME/Downloads
-  rm -rf Documents && ln -s $HOME/ownCloud/Personal/Workstations/Documents $HOME/Documents
-  rm -rf Music && ln -s $HOME/ownCloud/Personal/Workstations/Music $HOME/Music
-  rm -rf Videos && ln -s $HOME/ownCloud/Personal/Workstations/Videos $HOME/Videos
-  rm -rf Pictures && ln -s $HOME/ownCloud/Personal/Workstations/Pictures $HOME/Pictures
-  systemctl --user daemon-reload
-  systemctl --user start owncloud-distrobox
-  sleep 120
-  distrobox enter owncloud-desktop-quadlet -- distrobox-export --bin /opt/owncloud-client.AppDir/usr/bin/owncloud --export-path ~/bin/
+#  gsettings set org.gnome.shell enabled-extensions "['appindicatorsupport@rgcjonas.gmail.com', 'just-perfection-desktop@just-perfection']"
+#  gsettings set org.gnome.shell disabled-extensions "['background-logo@fedorahosted.org', 'places-menu@gnome-shell-extensions.gcampax.github.com']"
+#  gsettings set org.gnome.shell.extensions.just-perfection activities-button false
+#  gsettings set org.gnome.shell.extensions.just-perfection keyboard-layout false
+#  gsettings set org.gnome.shell.extensions.just-perfection accessibility-menu false
+#  gsettings set org.gnome.shell.extensions.just-perfection ripple-box false
+#  gsettings set org.gnome.shell.extensions.just-perfection weather false
+#  gsettings set org.gnome.shell.extensions.just-perfection world-clock false
+#  gsettings set org.gnome.shell.extensions.just-perfection window-demands-attention-focus false
+#  gsettings set org.gnome.shell.extensions.just-perfection type-to-search false
+#  gsettings set org.gnome.shell.extensions.just-perfection startup-status 0
+#  gsettings set org.gnome.shell.extensions.just-perfection workspace-switcher-should-show false
+#  gsettings set org.gnome.shell.extensions.just-perfection show-apps-button false
+#  echo "::endgroup::"
+#
+#  echo "::bootstrap:: update_aussielunix_ca"
+#  sudo wget --no-check-certificate https://cacert.hl.valueline.io/aussielunix_Root_CA_168848365996868199089383065266162030969.crt --output-document=/etc/pki/ca-trust/source/anchors/aussielunix_Root_CA_168848365996868199089383065266162030969.crt
+#  sudo /usr/bin/update-ca-trust
+#  echo "::endgroup::"
+#
+#
+## Install some Gnome extensions
+#install_gnome_extensions:
+#  #!/usr/bin/env bash
+#  set -e
+#  for GEXT in $(cat $HOME/.gnome_extensions);
+#  do
+#    gnome-extensions install $GEXT
+#  done
+#
+## Setup and start owncloud distrobox under systemd
+#owncloud_distrobox:
+#  #!/usr/bin/env bash
+#  mkdir -p $HOME/ownCloud/{Personal,Shares}/
+#  mkdir -p $HOME/.local/share/systemd/user
+#  rm -rf Downloads && ln -s $HOME/ownCloud/Personal/Workstations/Downloads $HOME/Downloads
+#  rm -rf Documents && ln -s $HOME/ownCloud/Personal/Workstations/Documents $HOME/Documents
+#  rm -rf Music && ln -s $HOME/ownCloud/Personal/Workstations/Music $HOME/Music
+#  rm -rf Videos && ln -s $HOME/ownCloud/Personal/Workstations/Videos $HOME/Videos
+#  rm -rf Pictures && ln -s $HOME/ownCloud/Personal/Workstations/Pictures $HOME/Pictures
+#  systemctl --user daemon-reload
+#  systemctl --user start owncloud-distrobox
+#  sleep 120
+#  distrobox enter owncloud-desktop-quadlet -- distrobox-export --bin /opt/owncloud-client.AppDir/usr/bin/owncloud --export-path ~/bin/
