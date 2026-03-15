@@ -1,12 +1,14 @@
 [user]
   name = Mick Pollard
   email = 261833+aussielunix@users.noreply.github.com
+  #  email = 5791325-aussielunix_@users.noreply.gitlab.com
+  signingkey = /home/lunix/.ssh/id_ed25519.pub
 
 [color]
   ui = true
 
 [diff]
-	wsErrorHighlight = all
+  wsErrorHighlight = all
 
 [alias]
   lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
@@ -20,13 +22,22 @@
   com = "commit -m"
   pu = !"git fetch origin -v; git fetch upstream -v; git merge upstream/master"
   l1 = "log --pretty=oneline --abbrev-commit"
+
 [push]
   default = simple
 
 [init]
-	defaultBranch = main
+  defaultBranch = main
 
 [core]
-	pager =
+  pager =
+
 [pull]
-	rebase = false
+  rebase = false
+
+[gpg]
+  format = ssh
+
+[commit]
+  gpgsign = true
+  signoff = true
