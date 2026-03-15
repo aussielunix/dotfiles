@@ -1,8 +1,12 @@
 [user]
   name = Mick Pollard
-  email = 261833+aussielunix@users.noreply.github.com
-  #  email = 5791325-aussielunix_@users.noreply.gitlab.com
   signingkey = /home/lunix/.ssh/id_ed25519.pub
+
+[includeIf "gitdir:~/Code/github.com/"]
+  path = ~/.gitconfig-github
+
+[includeIf "gitdir:~/Code/gitlab.com/"]
+  path = ~/.gitconfig-gitlab
 
 [color]
   ui = true
