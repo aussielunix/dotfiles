@@ -9,7 +9,7 @@
   path = ~/.gitconfig-gitlab
 
 [color]
-  ui = true
+  ui = always
 
 [diff]
   wsErrorHighlight = all
