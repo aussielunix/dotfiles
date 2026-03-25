@@ -3,10 +3,10 @@
   signingkey = /home/lunix/.ssh/id_ed25519.pub
 
 [includeIf "gitdir:~/Code/github.com/"]
-  path = ~/.gitconfig-github
+  path = /home/lunix/.gitconfig-github
 
 [includeIf "gitdir:~/Code/gitlab.com/"]
-  path = ~/.gitconfig-gitlab
+  path = /home/lunix/.gitconfig-gitlab
 
 [color]
   ui = always
@@ -16,16 +16,17 @@
 
 [alias]
   lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+  lgg = "log --show-signature"
   lgf = "log --name-only"
+  lg1 = "log --pretty=oneline --abbrev-commit"
   st = "status"
   incoming = "!git remote update -p; git log ..@{u}"
   in = "!git remote update -p; git log ..@{u}"
   outgoing = "log @{u}.."
   out = "log @{u}.."
   co = "commit"
-  com = "commit -s -S -m"
+  com = "commit -s -S"
   pu = !"git fetch origin -v; git fetch upstream -v; git merge upstream/master"
-  l1 = "log --pretty=oneline --abbrev-commit"
 
 [push]
   default = simple
@@ -33,8 +34,8 @@
 [init]
   defaultBranch = main
 
-[core]
-  pager =
+#[core]
+#  pager =
 
 [pull]
   rebase = false
@@ -45,3 +46,9 @@
 [commit]
   gpgsign = true
   signoff = true
+
+[tag]
+  gpgsign = true
+
+[gpg "ssh"]
+  allowedSignersFile = /home/lunix/.ssh/allowed_signers
