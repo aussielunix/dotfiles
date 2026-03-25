@@ -20,12 +20,9 @@
   lgf = "log --name-only"
   lg1 = "log --pretty=oneline --abbrev-commit"
   st = "status"
-  incoming = "!git remote update -p; git log ..@{u}"
   in = "!git remote update -p; git log ..@{u}"
-  outgoing = "log @{u}.."
   out = "log @{u}.."
   co = "commit"
-  com = "commit -s -S"
   pu = !"git fetch origin -v; git fetch upstream -v; git merge upstream/master"
 
 [push]
@@ -33,9 +30,6 @@
 
 [init]
   defaultBranch = main
-
-#[core]
-#  pager =
 
 [pull]
   rebase = false
