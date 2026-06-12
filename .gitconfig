@@ -24,6 +24,7 @@
   out = "log @{u}.."
   co = "commit"
   pu = !"git fetch origin -v; git fetch upstream -v; git merge upstream/master"
+  tags = "for-each-ref refs/tags --format='%(refname:short) %(contents:subject)'"
 
 [push]
   default = simple
