@@ -8,6 +8,9 @@
 [includeIf "gitdir:~/Code/gitlab.com/"]
   path = /home/lunix/.gitconfig-gitlab
 
+[includeIf "gitdir:~/.local/share/spass/vaults/"]
+  path = /home/lunix/.gitconfig-gitlab
+
 [color]
   ui = always
 
