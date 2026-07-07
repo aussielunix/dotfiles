@@ -1,4 +1,6 @@
-brew 'block-goose-cli'
+tap "aussielunix/tap", "https://gitlab.com/aussielunix/homebrew-tap.git"
+
+brew "aussielunix/tap/spass"
 brew 'cosign'
 brew 'crane'
 brew 'direnv'
