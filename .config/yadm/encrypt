@@ -1,8 +1,8 @@
 .ssh/config
 .ssh/id_rsa
-.ssh/packer_ed25519
+.ssh/id_ed25519
+.ssh/id_ed25519.pub
 .github_ublue_token
 .config/ownCloud/owncloud.cfg
 .config/containers/auth.json
 .config/wireguard/mgmt.conf
-.kube/config
