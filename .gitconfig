@@ -2,6 +2,9 @@
   name = Mick Pollard
   signingkey = /home/lunix/.ssh/id_ed25519.pub
 
+[includeIf "gitdir:~/.local/share/yadm/repo.git"]
+  path = /home/lunix/.gitconfig-github
+
 [includeIf "gitdir:~/Code/github.com/"]
   path = /home/lunix/.gitconfig-github
 
