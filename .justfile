@@ -38,6 +38,7 @@ setup:
   gsettings set org.gnome.desktop.interface document-font-name 'Noto Sans 14'
   gsettings set org.gnome.desktop.interface monospace-font-name 'DejaVu Sans Mono 14'
   gsettings set org.gnome.desktop.interface enable-hot-corners false
+  gsettings set org.gnome.desktop.peripherals.mouse natural-scroll true
   # Window manager / workspaces
   gsettings set org.gnome.mutter dynamic-workspaces false
   gsettings set org.gnome.desktop.wm.preferences num-workspaces 8
